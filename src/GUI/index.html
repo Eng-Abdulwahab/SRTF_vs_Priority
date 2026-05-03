@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Priority vs SRTF Scheduling Simulator</title>
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <h1>CPU Scheduling Simulator</h1>
+            <p>Priority vs SRTF Algorithms</p>
+        </header>
+
+        <section class="input-section">
+            <div class="input-group">
+                <input type="number" id="arrivalTime" placeholder="Arrival Time" />
+                <input type="number" id="burstTime" placeholder="Burst Time" />
+                <input type="number" id="priority" placeholder="Priority" />
+                <button id="addProcessBtn">Add Process</button>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <table id="processTable">
+                <thead>
+                    <tr>
+                        <th>Process ID</th>
+                        <th>Arrival Time</th>
+                        <th>Burst Time</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
