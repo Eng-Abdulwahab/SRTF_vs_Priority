@@ -1,4 +1,4 @@
-CASE 1 — Basic Scheduling (Simple comparison)
+CASE 1 — Basic Scheduling 
 
 Process| Arrival| Burst | Priority
 P1     | 0      | 4     | 2
