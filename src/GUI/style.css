@@ -304,3 +304,230 @@ input:focus {
     margin-bottom: 10px;
     opacity: 0.3;
 }
+
+.two_table{
+    display: flex;
+    justify-content: space-between;
+}
+.table_in_result{
+    width: 45%;
+}
+.table_in_result {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.table_in_result .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table tfoot {
+    margin-top: auto;
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+.average-row td {
+    padding: 10px;
+}
+
+.custom-gantt-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    padding: 30px 10px;
+    overflow-x: auto; 
+    background: #f9fafb;
+    border-radius: 8px;
+    min-height: 100px;
+}
+
+.gantt-block {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    min-width: 30px;
+}
+
+.gantt-block span {
+    pointer-events: none;
+}
+
+.gantt-block::after {
+    content: attr(data-end); 
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+    color: #666;
+    font-size: 12px;
+}
+
+.gantt-block::before {
+    content: attr(data-start); 
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    color: #666;
+    font-size: 12px;
+}
+
+
+.comparison-dashboard {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    border: 1px solid var(--primary-light);
+}
+
+.metric-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.metric-comparison {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.vs-circle {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.algo-box .label { display: block; font-size: 0.75rem; margin-bottom: 5px; }
+.algo-box .value { font-size: 1.5rem; font-weight: 900; }
+.value.teal { color: var(--primary-teal); }
+.value.orange { color: var(--accent-orange); }
+
+.winner-ribbon {
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.ribbon-teal { background: #e0f2f1; color: var(--primary-teal); }
+.ribbon-orange { background: #fff3e0; color: var(--accent-orange); }
+
+/* ستايل فقرات التحليل */
+.analysis-box {
+    border-left: 4px solid var(--primary-teal);
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    background: #f8fdfd;
+}
+.analysis-box h4 { color: var(--primary-dark); margin-bottom: 5px; }
+.analysis-box p { color: var(--text-main); font-size: 0.9rem; margin: 0; }
+.vs-circle {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.algo-box .label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.algo-box .value {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.value.teal { color: var(--primary-teal); }
+.value.orange { color: var(--accent-orange); }
+
+.winner-ribbon {
+    margin-top: 15px;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.ribbon-teal { background: #e0f2f1; color: var(--primary-teal); }
+.ribbon-orange { background: #fff3e0; color: var(--accent-orange); }
+
+.analysis-box {
+    border-left: 5px solid var(--primary-teal);
+    padding: 15px;
+    background: #f8fdfd;
+    margin-bottom: 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.analysis-box h4 {
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+}
+
+.custom-gantt-container {
+    padding-bottom: 40px !important; /* مساحة للأرقام اللي تحت */
+}
+.gantt-block {
+    background: var(--primary-teal);
+    color: white;
+    border-radius: 8px;
+    margin-right: 2px;
+    min-width: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gantt-block:nth-child(odd) {
+    background: var(--accent-orange);
+}
