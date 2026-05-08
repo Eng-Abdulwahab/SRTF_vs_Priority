@@ -2,7 +2,7 @@ import Process from "../model/Process.js";
 import { priorityScheduling } from "../scheduler/Priority.js";
 import { srtfScheduling } from "../scheduler/SRTF.js";
 import { calculateAverages } from "../metrics/Calculator.js";
-// import { drawGantt, renderComparisonDashboard } from "../util/ChartHelper.js";
+import { drawGantt, renderComparisonDashboard } from "../util/ChartHelper.js";
 let processes = [];
 
 //   ADD PROCESS
