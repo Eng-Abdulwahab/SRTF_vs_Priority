@@ -180,7 +180,45 @@ function runSimulation() {
     return;
   }
 }
+//  FILL TABLE
+function fillTable(tableId, data) {
+    const tbody = document.getElementById(tableId);
 
+    let rows = "";
+    let totalTat = 0;
+    let totalWt = 0;
+    let totalRt = 0;
+
+    data.forEach(p => {
+        totalTat += p.tat;
+        totalWt += p.wt;
+        totalRt += p.rt;
+
+        rows += `
+            <tr>
+                <td>${p.pid}</td>
+                <td>${p.ct}</td>
+                <td>${p.tat}</td>
+                <td>${p.wt}</td>
+                <td>${p.rt}</td>
+            </tr>
+        `;
+    });
+
+    tbody.innerHTML = rows;
+
+    const isPriority = tableId.includes("priority");
+
+    if (isPriority) {
+        document.getElementById("priority_avg_tat").textContent = (totalTat / data.length).toFixed(2);
+        document.getElementById("priority_avg_wt").textContent = (totalWt / data.length).toFixed(2);
+        document.getElementById("priority_avg_rt").textContent = (totalRt / data.length).toFixed(2);
+    } else {
+        document.getElementById("srtf_avg_tat").textContent = (totalTat / data.length).toFixed(2);
+        document.getElementById("srtf_avg_wt").textContent = (totalWt / data.length).toFixed(2);
+        document.getElementById("srtf_avg_rt").textContent = (totalRt / data.length).toFixed(2);
+    }
+}
 
 window.addProcess = addProcess;
 window.deleteProcess = deleteProcess;
