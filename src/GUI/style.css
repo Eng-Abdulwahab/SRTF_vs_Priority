@@ -515,7 +515,7 @@ input:focus {
 }
 
 .custom-gantt-container {
-    padding-bottom: 40px !important; /* مساحة للأرقام اللي تحت */
+    padding-bottom: 40px !important;
 }
 .gantt-block {
     background: var(--primary-teal);
