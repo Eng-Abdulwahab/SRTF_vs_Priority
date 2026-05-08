@@ -1,0 +1,6 @@
+CASE 1 — Basic Scheduling (Simple comparison)
+
+Process| Arrival| Burst | Priority
+P1     | 0      | 4     | 2
+P2     | 0      | 3     | 1
+P3     | 0      | 2     | 4

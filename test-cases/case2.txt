@@ -1,0 +1,7 @@
+CASE 2 — Preemption + Strong SRTF effect
+
+
+Process| Arrival| Burst | Priority
+P1     | 0      | 8     | 1
+P2     | 1      | 2     | 5
+P3     | 2      | 1     | 10

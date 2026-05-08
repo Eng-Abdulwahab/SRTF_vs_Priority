@@ -1,0 +1,6 @@
+ CASE 4 — Tie-break + Identical behavior
+
+Process| Arrival| Burst | Priority
+P1     | 0      | 3     | 1
+P2     | 0      | 3     | 1
+P3     | 0      | 3     | 1
