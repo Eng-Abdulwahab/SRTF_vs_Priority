@@ -176,6 +176,171 @@
         </div>
 
     </section>
+
+    <section class="view" id="view-gantt" style="display:none;">
+
+        <div class="view-header">
+            <h1 class="view-title">Gantt Charts</h1>
+            <p class="view-subtitle">Execution timeline for both algorithms</p>
+        </div>
+
+        <!-- Priority -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Priority Scheduling</h2>
+            </div>
+            <div class="card-body">
+                <div id="ganttPriority"></div>
+            </div>
+        </div>
+
+        <!-- SRTF -->
+        <div class="card">
+            <div class="card-header">
+                <h2>SRTF Scheduling</h2>
+            </div>
+            <div class="card-body">
+                <div id="ganttSRTF"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="view" id="view-results" style="display:none;">
+        <div class="view-header">   
+            <h1 class="view-title">Results & Comparison</h1>
+            <p class="view-subtitle">Detailed metrics and algorithm comparison</p>
+        </div>
+        <div class="two_table">
+                <div class="card table_in_result">
+
+                <div class="card-header">
+                    <h2 class="card-title">Priority Scheduling Results</h2>
+                </div>
+
+                <div class="card-body ">
+
+                    <table class="data-table">
+
+                        <thead>
+                            <tr>
+                                <th>Process </th>
+                                <th>CT</th>
+                                <th>TAT</th>
+                                <th>WT</th>
+                                <th>RT</th>
+                            </tr>
+                        </thead>
+
+    <!-- PRIORITY TABLE -->
+    <tbody id="priorityResultsTableBody"></tbody>
+
+    <tfoot>
+        <tr class="average-row">
+            <td>Averages</td>
+            <td></td>
+            <td id="priority_avg_tat"></td>
+            <td id="priority_avg_wt"></td>
+            <td id="priority_avg_rt"></td>
+        </tr>
+    </tfoot>
+
+                    </table>
+
+                </div>
+            </div>
+            <div class="card table_in_result">
+
+                <div class="card-header">
+                    <h2 class="card-title">SRTF Scheduling Results</h2>
+                </div>
+
+                <div class="card-body ">
+
+                    <table class="data-table">
+
+                        <thead>
+                            <tr>
+                                <th>Process </th>
+                                <th>CT</th>
+                                <th>TAT</th>
+                                <th>WT</th>
+                                <th>RT</th>
+                            </tr>
+                        </thead>
+    <!-- SRTF TABLE -->
+    <tbody id="srtfResultsTableBody"></tbody>
+
+    <tfoot>
+        <tr class="average-row">
+            <td>Averages</td>
+            <td></td>
+            <td id="srtf_avg_tat"></td>
+            <td id="srtf_avg_wt"></td>
+            <td id="srtf_avg_rt"></td>
+        </tr>
+    </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!-- قسم المقارنة والتحليل -->
+    <div class="comparison-dashboard">
+        
+        <!-- 1. الرسم البياني الرئيسي -->
+        <div class="card chart-card">
+            <div class="card-header">
+                <h2> Algorithms Performance</h2>
+            </div>
+            <div class="card-body">
+                <canvas id="comparisonChart" style="max-height: 350px;"></canvas>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-title">AVG WAITING TIME</span>
+                <div class="metric-comparison">
+                    <div class="algo-box">
+                        <span class="label">PRIORITY</span>
+                        <span class="value teal" id="val-prio-wt">0.0</span>
+                    </div>
+                    <div class="vs-circle">VS</div>
+                    <div class="algo-box">
+                        <span class="label">SRTF</span>
+                        <span class="value orange" id="val-srtf-wt">0.0</span>
+                    </div>
+                </div>
+                <div id="winner-wt" class="winner-ribbon"></div>
+            </div>
+
+            <div class="metric-card">
+                <span class="metric-title">AVG TURNAROUND TIME</span>
+                <div class="metric-comparison">
+                    <div class="algo-box">
+                        <span class="label">PRIORITY</span>
+                        <span class="value teal" id="val-prio-tat">0.0</span>
+                    </div>
+                    <div class="vs-circle">VS</div>
+                    <div class="algo-box">
+                        <span class="label">SRTF</span>
+                        <span class="value orange" id="val-srtf-tat">0.0</span>
+                    </div>
+                </div>
+                <div id="winner-tat" class="winner-ribbon"></div>
+            </div>
+        </div>
+
+        <div class="card analysis-card">
+            <div class="card-header">
+                <h2>Efficiency Analysis</h2>
+            </div>
+            <div class="card-body" id="analysis-text-area">
+            </div>
+        </div>
+    </div>
+    </section>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
