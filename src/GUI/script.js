@@ -60,37 +60,49 @@ function addProcess() {
 
 //  RENDER TABLE
 
-function renderTable() {
-  const tableBody = document.getElementById("processTableBody");
-  const emptyRow = document.getElementById("emptyRow");
+function runSimulation() {
 
-  tableBody.querySelectorAll("tr:not(#emptyRow)").forEach((r) => r.remove());
+    if (processes.length < 2) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Not Enough Processes',
+            text: 'You need at least 2 processes',
+            confirmButtonColor: "#008080"
+        });
+        return;
+    }
 
-  if (processes.length === 0) {
-    emptyRow.style.display = "table-row";
-  } else {
-    emptyRow.style.display = "none";
+    const inputCopy = structuredClone(processes);
 
-    processes.forEach((p, i) => {
-      const row = document.createElement("tr");
+    const priority = priorityScheduling(structuredClone(inputCopy));
+    const srtf = srtfScheduling(structuredClone(inputCopy));
 
-      row.innerHTML = `
-                <td>${p.pid}</td>
-                <td>${p.arrival}</td>
-                <td>${p.burst}</td>
-                <td>${p.priority}</td>
-                <td>
-                    <button class="btn btn-danger-ghost" onclick="deleteProcess(${i})">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
-            `;
+    if (!priority.result.length || !srtf.result.length) {
+        Swal.fire({
+            icon: "error",
+            title: "Simulation Error",
+            text: "No results generated"
+        });
+        return;
+    }
 
-      tableBody.appendChild(row);
-    });
-  }
+    drawGantt(priority.gantt, "ganttPriority");
+    drawGantt(srtf.gantt, "ganttSRTF");
 
-  updateCount();
+    fillTable("priorityResultsTableBody", priority.result);
+    fillTable("srtfResultsTableBody", srtf.result);
+
+    const prioStats = calculateAverages(priority.result);
+    const srtfStats = calculateAverages(srtf.result);
+
+    setTimeout(() => {
+        renderComparisonDashboard(prioStats, srtfStats);
+    }, 50);
+
+    switchView("results");
+
+    const status = document.getElementById("navStatus");
+    status.textContent = "Last run: " + new Date().toLocaleTimeString();
 }
 
 // DELETE

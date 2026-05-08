@@ -195,7 +195,3 @@ export function renderComparisonDashboard(prio, srtf) {
         }
     });
 } 
-
-
-
-
