@@ -3,7 +3,7 @@ export function srtfScheduling(processes) {
         ...p,
         remaining: p.burst,
         start: null,
-        firstResponse: null // عشان نحسب الـ RT صح
+        firstResponse: null 
     }));
 
     let time = 0, completed = 0, n = procs.length;
@@ -20,7 +20,6 @@ export function srtfScheduling(processes) {
                     minRemaining = procs[i].remaining;
                     idx = i;
                 } else if (procs[i].remaining === minRemaining) {
-                    // لو تساووا في الوقت المتبقي، نختار اللي وصل الأول
                     if (procs[i].arrival < procs[idx].arrival) idx = i;
                 }
             }
@@ -38,10 +37,8 @@ export function srtfScheduling(processes) {
 
         let p = procs[idx];
         
-        // تسجيل أول مرة البروسيس مسكت الـ CPU لحساب الـ RT
         if (p.firstResponse === null) p.firstResponse = time;
 
-        // لو حصل تبديل (Preemption)
         if (lastPid !== p.pid) {
             if (lastPid !== null) {
                 gantt.push({ pid: lastPid, start: segmentStart, end: time });
@@ -58,11 +55,10 @@ export function srtfScheduling(processes) {
             let ct = time;
             let tat = ct - p.arrival;
             let wt = tat - p.burst;
-            let rt = p.firstResponse - p.arrival; // RT = First Start - Arrival
+            let rt = p.firstResponse - p.arrival; 
 
             result.push({ ...p, ct, tat, wt, rt });
             
-            // قفل الشريحة الحالية
             gantt.push({ pid: p.pid, start: segmentStart, end: time });
             lastPid = null; 
             segmentStart = time;

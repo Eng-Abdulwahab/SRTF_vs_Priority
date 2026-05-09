@@ -1,5 +1,3 @@
-//DRAW GANTT CHART
-
 export function drawGantt(gantt, containerId) {
 
     const container = document.getElementById(containerId);
@@ -29,7 +27,7 @@ export function drawGantt(gantt, containerId) {
 
         div.innerHTML = `
             <span>${block.pid}</span>
-            <small>${block.start} - ${block.end}</small>
+            <small>[${block.start} -> ${block.end}]</small>
         `;
 
         wrapper.appendChild(div);
@@ -39,7 +37,6 @@ export function drawGantt(gantt, containerId) {
 }
 export function renderComparisonDashboard(prio, srtf) {
 
-    // استخراج القيم
     const prioWT = Number(prio?.avgWt) || 0;
     const srtfWT = Number(srtf?.avgWt) || 0;
 
@@ -50,7 +47,6 @@ export function renderComparisonDashboard(prio, srtf) {
     const srtfRT = Number(srtf?.avgRt) || 0;
 
 
-    // تحديث UI
     const setText = (id, value) => {
         const el = document.getElementById(id);
         if (el) el.textContent = value;
@@ -88,7 +84,6 @@ export function renderComparisonDashboard(prio, srtf) {
             : "Priority Scheduling may reduce fairness for low priority processes";
 
 
-    // التحليل النصي
     const analysis = document.getElementById("analysis-text-area");
 
     if (analysis) {

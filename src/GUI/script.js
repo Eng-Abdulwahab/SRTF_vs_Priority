@@ -4,9 +4,9 @@ import { srtfScheduling } from "../scheduler/SRTF.js";
 import { calculateAverages } from "../metrics/Calculator.js";
 import { drawGantt, renderComparisonDashboard } from "../util/ChartHelper.js";
 let processes = [];
-/* =========================
-   ADD PROCESS
-========================= */
+
+   //ADD PROCESS
+
 function addProcess() {
     const pid = document.getElementById("inp-pid").value.trim();
     const arrival = document.getElementById("inp-arrival").value;
@@ -61,9 +61,7 @@ function addProcess() {
 });
 }
 
-/* =========================
-   RENDER TABLE
-========================= */
+   //RENDER TABLE
 function renderTable() {
     const tableBody = document.getElementById("processTableBody");
     const emptyRow = document.getElementById("emptyRow");
@@ -97,9 +95,8 @@ function renderTable() {
     updateCount();
 }
 
-/* =========================
-   DELETE
-========================= */
+   //DELETE
+
 function deleteProcess(index) {
     processes.splice(index, 1);
     renderTable();
@@ -139,9 +136,8 @@ function deleteAll() {
     });
 }
 
-/* =========================
-   COUNT
-========================= */
+
+  // COUNT
 function updateCount() {
     document.getElementById("tableCount").textContent =
         `${processes.length} process${processes.length !== 1 ? "es" : ""}`;
@@ -174,9 +170,8 @@ function switchView(view) {
     document.getElementById("btn-" + view).classList.add("active");
 }
 
-/* =========================
-   RUN SIMULATION
-========================= */
+  // RUN SIMULATION
+
 function runSimulation() {
 
     if (processes.length < 2) {
@@ -189,7 +184,6 @@ function runSimulation() {
         return;
     }
 
-    // clone آمن
     const inputCopy = structuredClone(processes);
 
     const priority = priorityScheduling(structuredClone(inputCopy));
@@ -223,9 +217,8 @@ function runSimulation() {
     status.textContent = "Last run: " + new Date().toLocaleTimeString();
 }
 
-/* =========================
-   FILL TABLE
-========================= */
+   //FILL TABLE
+
 function fillTable(tableId, data) {
     const tbody = document.getElementById(tableId);
 
