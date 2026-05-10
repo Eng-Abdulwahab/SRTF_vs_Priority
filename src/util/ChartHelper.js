@@ -172,7 +172,7 @@ export function renderComparisonDashboard(prio, srtf) {
                 },
                 {
                     label: "SRTF",
-                    data: [srtfWT, srtfTAT, srtfRT],
+                    data: [srtfWT, srtfTAT],
                     backgroundColor: "#ff8a65"
                 }
             ]
