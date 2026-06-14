@@ -114,7 +114,7 @@ Each test case is designed to demonstrate a specific scheduling behavior:
 - Case 3: Starvation in Priority scheduling
 - Case 4: Identical behavior when inputs are uniform
 
-Screnshots
+Screenshots
 ["case1" (screenshots/case1.png)]
 ["case2" (screenshots/case2.png)]
 ["case3" (screenshots/case3.png)]
@@ -124,7 +124,7 @@ Screnshots
 
 How to Run
 
-git clone YOUR_REPOSITORY_LINK
+git clone REPOSITORY_LINK
 
 - Open project folder
 - Run using Live Server IN VSC
