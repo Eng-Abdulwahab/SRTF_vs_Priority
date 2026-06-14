@@ -168,14 +168,3 @@ Metrics
 - Response Time (RT)
 
 ---
-
-Team
-
-- Abdulwahab Mohamed
-- Abdelrahman Waheed
-- Abdulwahab Reda
-- Mohamed Said
-- Abdullah Hendawy
-- Ahmed Abdelhakim
-
----
